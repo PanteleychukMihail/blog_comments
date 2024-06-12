@@ -1,0 +1,20 @@
+<!-- comment.html -->
+<li>
+    <div class="comment">
+        <div class="username">{{ comment.username }}</div>
+        <div class="metadata">{{ comment.created_at }}</div>
+        <p class="text">{{ comment.text }}</p>
+        <div class="actions">
+            <a href="{% url 'reply_comment' comment.id %}">Reply</a>
+            <a href="{% url 'edit_comment' comment.id %}">Edit</a>
+            <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+        </div>
+    </div>
+    {% if comment.replies.all %}
+        <ul class="replies">
+            {% for reply in comment.replies.all %}
+                {% include 'comments/comment.html' with comment=reply %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

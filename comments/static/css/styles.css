@@ -1,0 +1,108 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.comment-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-table {
+    width: 100%;
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment .username {
+    font-weight: bold;
+    background-color: #f4eaea;
+}
+
+.comment .metadata {
+    font-size: 0.9em;
+    color: #666;
+    background-color: #f4eaea;
+}
+
+.comment .text {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.comment .actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.comment .actions a:hover {
+    text-decoration: underline;
+}
+
+.replies {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.comment-form-container {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    border-top: 2px solid #007bff;
+}
+
+.comment-form-container h2 {
+    margin-top: 0;
+}
+
+.comment-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form-container form .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.comment-form-container form label {
+    margin-bottom: 5px;
+}
+
+.comment-form-container form input,
+.comment-form-container form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment-form-container form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-form-container form button:hover {
+    background-color: #0056b3;
+}

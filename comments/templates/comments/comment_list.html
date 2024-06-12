@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+<div class="controls">
+        <button class="sort-btn" data-sort-by="username">Sort by Username</button>
+        <button class="sort-btn" data-sort-by="email">Sort by Email</button>
+        <button class="sort-btn" data-sort-by="created_at">Sort by Date</button>
+    </div>
+    <div class="comment-container">
+        <h1>Comment Thread</h1>
+        <table class="comment-table">
+            <tbody>
+                {% for comment in root_comments %}
+                    <tr>
+                        <td>
+                            <div class="comment">
+                                <div class="username">{{ comment.username }} <span class="metadata">{{ comment.created_at }}</span></div>
+                                <p class="text">{{ comment.text }}</p>
+                                <div class="actions">
+                                    <a href="{% url 'reply_comment' comment.id %}">Reply</a>
+                                    <a href="{% url 'edit_comment' comment.id %}">Edit</a>
+                                    <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+                                </div>
+                            </div>
+                            {% if comment.replies.all %}
+                                <ul class="replies">
+                                    {% for reply in comment.replies.all %}
+                                        {% include 'comments/comment.html' with comment=reply %}
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="comment-form-container">
+            <h2>Add a Comment</h2>
+            <form method="post" action="{% url 'add_comment' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Comment</button>
+            </form>
+        </div>
+    </div>
+
+<script src="{% static 'js/filter.js' %}"></script>
+</body>
+</html>
