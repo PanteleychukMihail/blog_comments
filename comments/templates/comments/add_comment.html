@@ -9,6 +9,14 @@
 </head>
 <body>
 
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
      <div class="comment-form-container">
          <h1>Add Comment</h1>
         <form method="post">
