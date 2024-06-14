@@ -24,7 +24,7 @@ class CommentListView(ListView):
     context_object_name = 'root_comments'
     form_class = CommentForm
     ordering = ['-created_at']
-    paginate_by = 10
+    paginate_by = 25
 
     def get_queryset(self):
         """Get the queryset of comments, sorted based on request parameters.
